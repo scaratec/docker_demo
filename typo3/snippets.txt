@@ -9,5 +9,8 @@ http://downloads.sourceforge.net/project/typo3/TYPO3%20Source%20and%20Dummy/TYPO
 /usr/sbin/apache2ctl -D FOREGROUND
 
 sudo docker run --name typo3-mysql -e MYSQL_ROOT_PASSWORD=gdgdus -d mysql
-sudo docker run --rm -p 80:80 --link typo3-mysql:mysql --name typo3 typo3_7
+sudo docker run --privileged --rm -p 80:80 --link typo3-mysql:mysql --name typo3 transit.docker.scaratec.com:7301/typo3_7
 
+k8s-cluster-1-node-1
+
+gcloud compute firewall-rules create allow-http --allow tcp:80 --target-tags k8s-cluster-1-node-1
