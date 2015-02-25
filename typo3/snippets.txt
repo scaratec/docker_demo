@@ -1,0 +1,13 @@
+apache2-mpm-worker apache2-suexc imagemagick libapache2-mod-fcgid php5-cgi php5-curl php5-gd php5-mysql wget
+
+apt-get install -y apache2 libapache2-mod-php5 imagemagick php5-cgi php5-curl php5-gd php5-mysql wget
+
+/etc/php5/apache2/php.ini
+
+http://downloads.sourceforge.net/project/typo3/TYPO3%20Source%20and%20Dummy/TYPO3%207.0.2/typo3_src-7.0.2.tar.gz
+
+/usr/sbin/apache2ctl -D FOREGROUND
+
+sudo docker run --name typo3-mysql -e MYSQL_ROOT_PASSWORD=gdgdus -d mysql
+sudo docker run --rm -p 80:80 --link typo3-mysql:mysql --name typo3 typo3_7
+
